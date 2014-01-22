@@ -54,7 +54,10 @@ UIColor *colorForColorString(NSString *colorString) {
         NSString *sizeString = array[1];
         if (!sizeString) return nil;
 
-        NSString *colorString = array[2];
+        NSString *colorString = nil;
+        if (array.count >= 3) {
+            colorString = array[2];
+        }
 
         return [self dummyImageWithSize:sizeForSizeString(sizeString) color:colorForColorString(colorString)];
     } else {

@@ -30,7 +30,9 @@
 
 - (IBAction)dummyImageButtonTapped:(id)sender
 {
-    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.#407EFF"];   // ex. dummy.150x300.blue
+    self.imageView.image = [UIImage imageNamed:@"dummy.150x200"];
+//    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.#407EFF"];
+//    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.blue"];
 }
 
 - (IBAction)realImageButtonTapped:(id)sender
