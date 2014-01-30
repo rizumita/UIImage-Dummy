@@ -31,13 +31,15 @@
 - (IBAction)dummyImageButtonTapped:(id)sender
 {
     self.imageView.image = [UIImage imageNamed:@"dummy.150x200"];
+//    self.imageView.image = [UIImage imageNamed:@"dummy.150x200..notexistimage.png"];
+//    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.#407EFF..notexistimage.png"];
 //    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.#407EFF"];
 //    self.imageView.image = [UIImage imageNamed:@"dummy.150x200.blue"];
 }
 
 - (IBAction)realImageButtonTapped:(id)sender
 {
-    self.imageView.image = [UIImage imageNamed:@"image.png"];
+    self.imageView.image = [UIImage imageNamed:@"dummy.150x200..image.png"];
 }
 
 @end

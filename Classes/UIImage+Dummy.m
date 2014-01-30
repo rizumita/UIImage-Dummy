@@ -44,11 +44,18 @@ UIColor *colorForColorString(NSString *colorString) {
 
 + (UIImage *)dummy_imageNamed:(NSString *)name
 {
-    if (!name) return nil;
+    if (!name || name.length == 0) return nil;
 
     UIImage *result;
 
-    NSArray *array = [name componentsSeparatedByString:@"."];
+    // If dummy and real image name, and if real image exists, real image UIImage is returned.
+    NSArray *dummyRealArray = [name componentsSeparatedByString:@".."];
+    if (dummyRealArray.count > 1) {
+        result = [UIImage imageNamed:dummyRealArray[1]];
+        if (result) return result;
+    }
+
+    NSArray *array = [dummyRealArray[0] componentsSeparatedByString:@"."];
     if ([[array[0] lowercaseString] isEqualToString:@"dummy"]) {
         // Create Dummy image
         NSString *sizeString = array[1];
