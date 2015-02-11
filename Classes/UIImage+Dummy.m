@@ -93,7 +93,16 @@ UIColor *colorForColorString(NSString *colorString) {
         NSDictionary *attributes = @{NSParagraphStyleAttributeName : style};
         [sizeString drawInRect:rect withAttributes:attributes];
     } else {
-        [sizeString drawInRect:rect withFont:[UIFont systemFontOfSize:12] lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        UIFont *font = [UIFont systemFontOfSize:12];
+        
+        NSDictionary *attributes = @{NSFontAttributeName: font,
+                                     NSParagraphStyleAttributeName: paragraphStyle};
+        
+        [sizeString drawInRect:rect withAttributes:attributes];
     }
 
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
